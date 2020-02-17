@@ -40,7 +40,9 @@ spec:
         livenessProbe:
           exec:
             command: ["/bin/grpc_health_probe", "-addr=:3550"]
-#        env:
+        env:
+           - name: AWS_REGION # required by DynamoDB session
+             value: "us-west-2"
 #          - name: JAEGER_SERVICE_ADDR
 #            value: "jaeger-collector:14268"
         resources:
