@@ -56,7 +56,7 @@ var (
 
 	port = "3550"
 
-	reloadCatalog bool
+	reloadCatalog = true
 )
 
 func init() {
@@ -286,12 +286,12 @@ func readCatalogDynamo(catalog *pb.ListProductsResponse) error {
 }
 
 func parseCatalog() []*pb.Product {
-//	if reloadCatalog || len(cat.Products) == 0 {
+	if reloadCatalog || len(cat.Products) == 0 {
 		err := readCatalogDynamo(&cat)
 		if err != nil {
 			return []*pb.Product{}
 		}
-//	}
+	}
 	return cat.Products
 }
 
