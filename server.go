@@ -56,7 +56,7 @@ var (
 
 	port = "3550"
 
-	reloadCatalog = true
+	reloadCatalog bool
 )
 
 func init() {
